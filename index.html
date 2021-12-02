@@ -1,20 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
+<section class="genderInf">
 
+  <form class="form" method="get">
+
+    <p class="formText" >Mr. or Ms.?:</p>
+
+    <div class="formRow">
+      <span class="formRowText" id="name"> Name:</span>
+      <input class="formRowTextBox" id=nameBox type="text" name="nameBox" value="" maxlength="255" >
+    </div>
+
+    <div class="formRow">
+      <input class="formRowRadio" id="male" type="radio" name="gender" value="male" /> Male
+    </div>
+
+    <div class="formRow">
+      <input class="formRowRadio" id="female" type="radio" name="gender" value="female" /> Female
+    </div>
+
+    <input class="formButton" id="submit" type="button" value="Submit" />
+    <input class="formButton" id="save" type="button" value="save" />
+
+  </form>
+
+  <div class="form"  action="http://httpbin.org/get" method="get">
+    <p class="formText" id="output">Prediction</p>
+    <p class="formText" id="genderOutput">undefined</p>
+    <p class="formText" id="probability">undefined</p>
+    <div class="formColumn">
+      <span class="formText" id="savedOutput">undefined</span><br>
+      <input class="formButton" id="clear" type="button" value="clear" />
+    </div>
+
+
+  </div>
+
+</section>
 </body>
-<style>
-    body {
-        width: 100%;
-        height: 100%;
-        background-image: url("\Gender_binary.jpg");
-        position: center;
-        overflow: hidden;
-    }
+
+<style type="text/css">
+  html{
+    width: 100vw;
+    height: 100vh;
+  }
+  body{
+    width: 100%;
+    height: 100%;
+    background-image:url("\Gender_binary.jpg");
+    position: center;
+    overflow: hidden;
+
+  }
+  section{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: fit-content;
+    background-color:rgba(255,255,255,0.5);
+    gap: 10px;
+    border: solid;
+    margin: auto;
+    position:center;
+    margin-top: 10%;
+    font-size: 6vh;
+    padding: 10px;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+  }
+  .formButton{
+    width: fit-content;
+    font-size: 3vh;
+  }
+  .formRowTextBox{
+    width: 50%;
+    font-size: 3vh;
+  }
+
+  .formRow{
+    font-size: 3vh;
+  }
+
+  .formRowRadio{
+    width:3vh ;
+    height: 3vh;
+  }
+
+  #savedOutput{
+    height: 10vh;
+    font-size: 6vh;
+
+  }
+
+  #probability{
+    font-size: 3vh;
+  }
+
+  #genderOutput{
+    font-size: 3vh;
+  }
+  .formColumn{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    min-width: 40vh;
+    min-height: 20vh;
+    height: fit-content;
+    border-style: dotted;
+  }
+
+
 </style>
+
+
+<script type="text/javascript">
+  "use strict";
+
+
+  document.querySelector("#submit").onmousedown=fetchGenderOfName;
+  document.querySelector("#save").onmousedown=saveGender;
+  document.querySelector("#clear").onmousedown=clearSavedGender;
+
+  function clearSavedGender(){
+    let name=document.querySelector("#nameBox").value;
+    document.querySelector("#savedOutput").innerText="";
+    console.log();
+    localStorage.removeItem(name);
+    console.log();
+  }
+
+  function fetchGenderOfName(){
+    let apiLink="https://api.genderize.io/?name=";
+    let reg=/^[a-zA-Z ]{1,256}$/;
+    let name=document.querySelector("#nameBox").value;
+    let savedGender=localStorage.getItem(name);
+    console.log();
+    document.getElementById("savedOutput").innerText=savedGender;
+    console.log();
+
+    if (reg.test(name)) {
+      let link=apiLink+name
+      fetch(link)
+              .then((resp) => resp.json())
+              .then(
+                      (data) => {
+                        document.getElementById("genderOutput").textContent = data['gender'];
+                        document.getElementById("probability").textContent = data['probability'];
+                      }
+              );
+      let boxes = document.getElementsByClassName("formRowRadio");
+      for (let i = 0; i < boxes.length; i++) {
+        boxes[i].checked=false
+      }
+    }
+    else alert("name is not valid")
+  }
+
+  function saveGender() {
+    let boxes = document.getElementsByClassName("formRowRadio");
+    let gender;
+    for (let i = 0; i < boxes.length; i++) {
+      if (boxes[i].checked)gender=boxes[i].value
+    }
+    console.log()
+    let name = document.querySelector("#nameBox").value;
+    if(gender===undefined)gender=document.getElementById("genderOutput").textContent;
+    localStorage.setItem(name,gender);
+    console.log()
+
+  }
+
+</script>
 
 </html>
