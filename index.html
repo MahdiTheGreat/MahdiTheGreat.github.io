@@ -58,7 +58,6 @@
     background-image:url("\Gender_binary.jpg");
     /*hidden overflow for getting rid of scrollbars*/
     overflow: hidden;
-
   }
   #error{
     /*red background color for error output to make it more visible  */
@@ -91,7 +90,7 @@
     /*use of auto margin to put the window in the center however some top margin is also
      needed to achieve that effect*/
     margin: auto;
-    margin-top: 10%;
+    margin-top: 15%;
     /*default fontsize of the section is 6vh unless overridden for smaller texts*/
     font-size: 6vh;
   }
@@ -169,27 +168,29 @@
   document.querySelector("#submit").onmousedown=fetchGenderOfName;
   document.querySelector("#save").onmousedown=saveGender;
   document.querySelector("#clear").onmousedown=clearSavedGender;
+  //to hold the last submitted name
+  let lastSubmittedname;
 
   function clearSavedGender(){
     //clearing data related to the saved gender for the given name in localstorage
-    let name=document.querySelector("#nameBox").value;
     document.querySelector("#savedOutput").innerText="";
     //console.log();
-    localStorage.removeItem(name);
+    localStorage.removeItem(lastSubmittedname);
     //console.log();
     //localStorage.clear();
   }
 
   function fetchGenderOfName(){
-    //checking the validity of the given name by regex and fetching the data given by the api 
+    //checking the validity of the given name by regex and fetching the data given by the api
     //and putting it in the appropriate places of the window
     let apiLink="https://api.genderize.io/?name=";
-    let reg=/^[a-zA-Z ]{1,256}$/;
+    let reg=/^[a-zA-Z ]{1,255}$/;
     let name=document.querySelector("#nameBox").value;
     let savedGender=localStorage.getItem(name);
     //console.log();
     document.getElementById("savedOutput").innerText=savedGender;
     //console.log();
+    //a promise chain for first fetching file and seeing if there is a gender for the given name
     if (reg.test(name)) {
       let link=apiLink+name
       fetch(link)
@@ -209,6 +210,7 @@
                         if(data['gender']===null)errorDisplayer("error:not a real name");
                       }
               );
+      lastSubmittedname=name;
       //getting back the place allocated for the error output since there was no error
       document.getElementById("error").style.display="none";
       //unchecking all the radio buttons to not have the previous gender checks effect the current one
@@ -231,11 +233,16 @@
     //console.log()
     let name = document.querySelector("#nameBox").value;
     //if there is no gender then we store the predicted gender
-    if(gender===undefined)gender=document.getElementById("genderOutput").textContent;
+    if(gender===undefined ){
+      if (name===lastSubmittedname) gender=document.getElementById("genderOutput").textContent;
+      else {
+        alert("submit or select a gender");
+        return;
+      }
+      }
     //this both stores the gender of the name and overrides it if the gender of the name is already stored
     localStorage.setItem(name,gender);
     //console.log()
-
   }
 
   function errorDisplayer(error){
