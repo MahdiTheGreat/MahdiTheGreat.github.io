@@ -24,7 +24,7 @@
       <input class="formRowRadio" id="female" type="radio" name="gender" value="female" /> Female
     </div>
 
-    <input class="formButton" id="submit" type="button" value="Submit" />
+    <input class="formButton" id="submit" type="submit" value="Submit" />
     <input class="formButton" id="save" type="button" value="save" />
 
   </form>
@@ -171,9 +171,10 @@
   "use strict";
 
   //assigning event handlers
-  document.querySelector("#submit").onmousedown=fetchGenderOfName;
+  //document.querySelector("#submit").onmousedown=fetchGenderOfName;
   document.querySelector("#save").onmousedown=saveGender;
   document.querySelector("#clear").onmousedown=clearSavedGender;
+  document.querySelector("form").onsubmit=fetchGenderOfName;
   //to hold the last submitted name
   let lastSubmittedname;
 
@@ -186,7 +187,7 @@
     //localStorage.clear();
   }
 
-  function fetchGenderOfName(){
+  function fetchGenderOfName(event){
     //checking the validity of the given name by regex and fetching the data given by the api
     //and putting it in the appropriate places of the window
     let apiLink="https://api.genderize.io/?name=";
@@ -226,7 +227,8 @@
       }
     }
     //error for when the given name is not valid
-    else errorDisplayer("error:name is not valid")
+    else alert("name is not valid");
+    event.preventDefault();
   }
 
   function saveGender() {
