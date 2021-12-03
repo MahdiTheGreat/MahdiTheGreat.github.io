@@ -77,12 +77,18 @@
     for the second column is because it doesn't have submit or radio buttons*/
     display: flex;
     flex-direction: row;
+    /*used flex wrap just for backup*/
+    flex-wrap: wrap;
     /*fit-content for both height and width
     to make the section or website window as big as needed*/
     width: fit-content;
     height: fit-content;
-    /*white background color with opacity of 0.5 for transparency */
-    background-color:rgba(255,255,255,0.5);
+    /*using justify to put the window in the center as much as possible*/
+    justify-items: center;
+    justify-content: center;
+    /*white background color with opacity of 0.8 for transparency */
+    background-color:rgba(255,255,255);
+    opacity: 0.8;
     /*gap, border and padding for better design of window */
     gap: 10px;
     border: solid;
