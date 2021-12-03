@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- this website looks the best with chrome but still works as intended with firefox -->
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Mr. or Ms.?</title>
 </head>
-<body>
-<section class="genderInf">
+<body class="genderInf">
 
   <form class="form" method="get">
 
@@ -40,7 +40,6 @@
     </div>
   </div>
 
-</section>
 </body>
 
 <style type="text/css">
@@ -49,29 +48,17 @@
     view screen*/
     width: 100vw;
     height: 100vh;
-  }
-  body{
-    /*max width and height of father inherited since there is no need for a head*/
-    width: 100%;
-    height: 100%;
-    /*setting the background image*/
+    /*use flex to center the main window or body vertically */
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    justify-content: center;
+    /*setting the background image */
     background-image:url("\Gender_binary.jpg");
-    /*hidden overflow for getting rid of scrollbars*/
-    overflow: hidden;
-  }
-  #error{
-    /*red background color for error output to make it more visible  */
-    background-color: red;
-    /*display is none to not take unnecessary space*/
-    display: none;
-    /*there are two font sizes that are used, one for smaller texts and
-    one for bigger texts and our error message is one of the smaller texts
-    therefore its size is 3vh. vh is used to make the website more
-    responsive*/
-    font-size: 3vh;
+
 
   }
-  section{
+  body{
     /*flex with row direction which contains two columns, one for a form
     and one for a div. keep in mind that the reason that the form wasn't used
     for the second column is because it doesn't have submit or radio buttons*/
@@ -87,19 +74,32 @@
     justify-items: center;
     justify-content: center;
     /*white background color with opacity of 0.8 for transparency */
-    background-color:rgba(255,255,255);
+    background-color:skyblue;
     opacity: 0.8;
     /*gap, border and padding for better design of window */
     gap: 10px;
     border: solid;
     padding: 10px;
-    /*use of auto margin to put the window in the center however some top margin is also
-     needed to achieve that effect*/
+    /*use of auto margin to vertically center the main window or body*/
     margin: auto;
-    margin-top: 15%;
     /*default fontsize of the section is 6vh unless overridden for smaller texts*/
     font-size: 6vh;
+    /*hidden overflow for getting rid of scrollbars*/
+    overflow: hidden;
   }
+  #error{
+    /*red background color for error output to make it more visible  */
+    background-color: red;
+    /*display is none to not take unnecessary space*/
+    display: none;
+    /*there are two font sizes that are used, one for smaller texts and
+    one for bigger texts and our error message is one of the smaller texts
+    therefore its size is 3vh. vh is used to make the website more
+    responsive*/
+    font-size: 3vh;
+
+  }
+
   form{
     /*flex with column direction which form elements such as button, text and...*/
     display: flex;
