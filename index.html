@@ -221,6 +221,8 @@
       //getting back the place allocated for the error output since there was no error
       document.getElementById("error").style.display="none";
       //unchecking all the radio buttons to not have the previous gender checks effect the current one
+      //and also allow the user to immediately store the retrieved gender and in case the user knows more
+      //about the gender of the given name, select the gender that it thinks is the correct one.
       let boxes = document.getElementsByClassName("formRowRadio");
       for (let i = 0; i < boxes.length; i++) {
         boxes[i].checked=false
