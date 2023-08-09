@@ -1,5 +1,3 @@
-# MahdiTheGreat.github.io
-
 # Mr or Mrs?
 
 One of the most difficult tasks in class, especially online classes, is the correct use of Mr. and Mrs. prefixes.
