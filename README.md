@@ -1,6 +1,6 @@
 # MahdiTheGreat.github.io
 
-#Mr or Mrs?
+# Mr or Mrs?
 
 One of the most difficult tasks in class, especially online classes, is the correct use of Mr. and Mrs. prefixes.
 For example, you see Mahdi Afarideh's name in the list and you don't know whether you should say Mr. Alwani or Mrs. Alwani. 
