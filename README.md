@@ -4,15 +4,15 @@ One of the most difficult tasks in class, especially online classes, is the corr
 
 In this site, there are two general situations, one when the user knows the gender of the name and wants to save it on the site and two when the user does not know and wants to find out through our site.
 
-In the website a background covers the whole page, and in the middle of it is a transparent rectangle. We are careful so that the transparency is not so high that the text inside the rectangle cannot be read. The middle rectangle contains all your displayable content. This rectangle is only the size of it's contents, but to display it more beautifully, we use padding. The content consists of two parts that are placed horizontally next to each other. The first part is a form that consists of two entries. The first entry is in text form and it can be done if one already knows the answer. The second input is in the form of two radio buttons that allow the user to enter the desired name, enter it and this answer is saved for the future. The design spec of this website can be seen below:
+In the website a background covers the whole page, and in the middle of it is a transparent rectangle. We are careful so that the transparency is not so high that the text inside the rectangle cannot be read. The middle rectangle contains all your displayable content. This rectangle is only the size of its contents, but to display it more beautifully, we use padding. The content consists of two parts that are placed horizontally next to each other. The first part is a form that consists of two entries. The first entry is in text form and it can be done if one already knows the answer. The second input is in the form of two radio buttons that allow the user to enter the desired name, enter it and this answer is saved for the future. The design spec of this website can be seen below:
 
 ![image](https://github.com/MahdiTheGreat/MahdiTheGreat.github.io/assets/47212121/d9608df4-430c-4842-a159-559435748f00)
 
-and the implemenation is shown below:
+and the implementation is shown below:
 
-![Screenshot 2023-08-09 at 11-00-19 Mr  or Ms](https://github.com/MahdiTheGreat/Mr-or-Mrs/assets/47212121/351fc0e2-9d69-42df-a51a-485bafe3a1ce)
+![Screenshot 2023-08-09 at 16-47-12 Mr  or Ms](https://github.com/MahdiTheGreat/mahdithegreat.github.io/assets/47212121/476cc2e3-ac8b-4a51-9d71-ea6b0c98c4a7)
 
-After filling out the form, the user clicks on submit button and his request will be sent. For example below we fill the form with the name Xena:
+After filling out the form, the user clicks on the submit button and his request will be sent. For example below we fill the form with the name Xena:
 
 ![Screenshot 2023-08-09 at 15-35-10 Mr  or Ms](https://github.com/MahdiTheGreat/mahdithegreat.github.io/assets/47212121/b44fae2a-171b-4e7b-b77a-9b3799874db9)
 
