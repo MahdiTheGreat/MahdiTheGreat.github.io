@@ -17,7 +17,7 @@ The first part is a form that consists of two entries. The first entry is in tex
 and it can be done if one already knows the answer. The second input is in the form of two radio buttons that allow the user 
 to enter the desired name, enter it and this answer is saved for the future. 
 
-![image](https://github.com/MahdiTheGreat/MahdiTheGreat.github.io/assets/47212121/86228290-a77c-45df-9a7d-c851550cb0fd)
+![Screenshot 2023-08-09 at 11-00-19 Mr  or Ms](https://github.com/MahdiTheGreat/Mr-or-Mrs/assets/47212121/351fc0e2-9d69-42df-a51a-485bafe3a1ce)
 
 After filling the form, the user clicks on request button and his request will be sent. 
 
